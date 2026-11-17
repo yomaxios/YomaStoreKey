@@ -90,14 +90,50 @@ footer{
  color:#999;
  margin-top:30px;
 }
-</style>
+.auth-actions{
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+
+.login-btn{
+  background:#1877f2;
+  color:white;
+  padding:10px 12px;
+  border:0;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.register-btn{
+  background:#16a34a;
+  color:white;
+  padding:10px 12px;
+  border:0;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+@media(max-width:480px){
+  header{
+    padding:12px 8px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .auth-actions button{
+    padding:8px;
+    font-size:12px;
+  }
+}
 </head>
 
 <body>
 
 <header>
- <div class="logo">🔴 YOMA STORE</div>
- <button onclick="changeLang()">EN / KH</button>
+<div class="auth-actions">
+  <button class="login-btn" onclick="openLogin()">LOGIN</button>
+  <button class="register-btn" onclick="openRegister()">REGISTER</button>
+</div>
 </header>
 
 <section class="hero">
