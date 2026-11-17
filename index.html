@@ -1,1 +1,345 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>YOMA STORE</title>
+
+<style>
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+body{
+ background:#090909;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+
+/* HEADER */
+
+header{
+ background:#151515;
+ padding:16px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:2px solid #ed1c24;
+}
+
+.logo{
+ color:#ff2525;
+ font-size:23px;
+ font-weight:bold;
+}
+
+button{
+ border:0;
+ padding:12px 18px;
+ border-radius:8px;
+ cursor:pointer;
+ color:white;
+ font-weight:bold;
+}
+
+.lang-btn{
+ background:#ed1c24;
+}
+
+/* HERO */
+
+.hero{
+ padding:55px 15px;
+ text-align:center;
+ background:linear-gradient(135deg,#310000,#111);
+}
+
+.hero h1{
+ font-size:35px;
+ color:#ff2929;
+ margin-bottom:15px;
+}
+
+.hero p{
+ color:#ccc;
+ margin-bottom:20px;
+}
+
+.hero button{
+ background:#ed1c24;
+}
+
+/* PRODUCTS */
+
+.container{
+ padding:25px 18px;
+}
+
+.title{
+ font-size:23px;
+ margin-bottom:20px;
+ border-left:4px solid red;
+ padding-left:12px;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+}
+
+.card{
+ background:#191919;
+ border:1px solid #333;
+ border-radius:12px;
+ padding:18px 10px;
+ text-align:center;
+ transition:.3s;
+}
+
+.card:hover{
+ border-color:#ed1c24;
+ transform:translateY(-4px);
+}
+
+.icon{
+ font-size:40px;
+ margin-bottom:12px;
+}
+
+.card h3{
+ margin-bottom:10px;
+}
+
+.price{
+ color:#ff3535;
+ margin:10px;
+}
+
+.card button{
+ width:100%;
+ background:#ed1c24;
+}
+
+.card button:hover{
+ background:#ff3333;
+}
+
+/* FOOTER */
+
+footer{
+ text-align:center;
+ padding:30px;
+ background:#151515;
+ color:#999;
+ margin-top:30px;
+}
+
+footer h3{
+ color:#ff2929;
+ margin-bottom:8px;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+ header{
+  padding:12px 8px;
+ }
+
+ .logo{
+  font-size:19px;
+ }
+
+ .hero h1{
+  font-size:28px;
+ }
+
+ .grid{
+  gap:10px;
+ }
+
+ .card{
+  padding:15px 8px;
+ }
+
+ .card h3{
+  font-size:15px;
+ }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+ <div class="logo">
+  🔴 YOMA STORE
+ </div>
+
+ <button class="lang-btn" onclick="changeLang()">
+  EN / KH
+ </button>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+ <h1 id="welcome">YOMA STORE</h1>
+
+ <p id="desc">
+ Premium Digital Products & Reseller Platform
+ </p>
+
+ <button onclick="showProducts()">
+  Explore Products
+ </button>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="container" id="products">
+
+ <h2 class="title" id="productTitle">
+  🔥 ផលិតផលរបស់យើង
+ </h2>
+
+ <div class="grid">
+
+  <div class="card">
+   <div class="icon">💎</div>
+   <h3>MLBB Diamonds</h3>
+   <p class="price">$1.00</p>
+   <button onclick="buy('MLBB Diamonds')">
+    Order Now
+   </button>
+  </div>
+
+  <div class="card">
+   <div class="icon">🔥</div>
+   <h3>Free Fire</h3>
+   <p class="price">$1.00</p>
+   <button onclick="buy('Free Fire')">
+    Order Now
+   </button>
+  </div>
+
+  <div class="card">
+   <div class="icon">🎮</div>
+   <h3>PUBG Mobile</h3>
+   <p class="price">$1.00</p>
+   <button onclick="buy('PUBG Mobile')">
+    Order Now
+   </button>
+  </div>
+
+  <div class="card">
+   <div class="icon">🔑</div>
+   <h3>Premium Apps</h3>
+   <p class="price">$1.00</p>
+   <button onclick="buy('Premium Apps')">
+    Order Now
+   </button>
+  </div>
+
+  <div class="card">
+   <div class="icon">📱</div>
+   <h3>Game MODS</h3>
+   <p class="price">$1.00</p>
+   <button onclick="buy('Game MODS')">
+    Order Now
+   </button>
+  </div>
+
+  <div class="card">
+   <div class="icon">👑</div>
+   <h3>Reseller Account</h3>
+   <p class="price">Join Us</p>
+   <button onclick="buy('Reseller Account')">
+    Join Now
+   </button>
+  </div>
+
+ </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+ <h3>YOMA STORE</h3>
+
+ <p>Premium Digital Store</p>
+
+ <p>© 2026 YOMA STORE. All Rights Reserved.</p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* TELEGRAM ORDER */
+
+const TELEGRAM = "https://t.me/YOMAXIOS";
+
+function buy(product){
+
+ const message =
+ "Hello YOMA STORE! I want to order: " + product;
+
+ const url =
+ TELEGRAM + "?text=" + encodeURIComponent(message);
+
+ window.open(url,"_blank");
+
+}
+
+/* SHOW PRODUCTS */
+
+function showProducts(){
+
+ document.getElementById("products")
+ .scrollIntoView({
+  behavior:"smooth"
+ });
+
+}
+
+/* LANGUAGE */
+
+let kh = true;
+
+function changeLang(){
+
+ kh = !kh;
+
+ document.getElementById("welcome").innerText =
+ kh ? "YOMA STORE" : "WELCOME TO YOMA STORE";
+
+ document.getElementById("desc").innerText =
+ kh
+ ? "Premium Digital Products & Reseller Platform"
+ : "Your Premium Digital Shopping Platform";
+
+ document.getElementById("productTitle").innerText =
+ kh ? "🔥 ផលិតផលរបស់យើង" : "🔥 OUR PRODUCTS";
+
+}
+
+</script>
+
+</body>
+</html>
