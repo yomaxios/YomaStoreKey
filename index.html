@@ -418,24 +418,22 @@ footer h3{
 </footer>
 
 
-<script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 /* SUPABASE CONFIG */
 
 // បញ្ចូល Project URL របស់អ្នក
 const SUPABASE_URL =
 "https://hhubnqqkeaxuwnqrzgsm.supabase.co";
-
 // បញ្ចូល Publishable Key របស់អ្នក
+ 
 const SUPABASE_KEY =
 "sb_publishable__glU4NoybHdtYWpuMdD77A_llwOf-Vd";
 
-const supabaseClient =
-supabase.createClient(
- SUPABASE_URL,
- SUPABASE_KEY
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
 );
-
 
 /* LANGUAGE */
 
